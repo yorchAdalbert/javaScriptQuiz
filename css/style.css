@@ -7,6 +7,7 @@
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to bottom right, #622569, #b8a9c9, #622569);
