@@ -20,31 +20,52 @@ let question2 = new Question(2, 'How to declare a variable?', 'b');
 let question3 = new Question(3, 'What is a function', 'c');
 
 let optionsQuestion1 = new Option(1, 'A programming language', 'A software', 'A web page');
-let optionsQuestion2 = new Option(1, '$', 'var', 'int');
+let optionsQuestion2 = new Option(2, '$', 'var', 'int');
+let optionsQuestion3 = new Option(3, 'Something', 'nothing', 'A block of code');
 
 let questions = [question1, question2, question3];
-let optionsQuestions = [optionsQuestion1, optionsQuestion2]; 
+let optionsQuestions = [optionsQuestion1, optionsQuestion2, optionsQuestion3]; 
 
-let questionSection = document.getElementById('question');
-let option1 = document.getElementById('option1');
-let option2 = document.getElementById('option2');
-let option3 = document.getElementById('option3');
-let buttonNext = document.getElementById('next');
-let iteration = 0;
+let questionSection = document.getElementById('questionSection');
+let question = document.getElementById('question');
+let option1 = document.getElementById('a');
+let option2 = document.getElementById('b');
+let option3 = document.getElementById('c');
+let i = 0;
+let correctAnswers = 0;
 
-questionSection.innerHTML = questions[iteration].content;
+question.innerHTML = questions[i].content;
 
-option1.innerHTML = optionsQuestions[iteration].option1;
-option2.innerHTML = optionsQuestions[iteration].option2;
-option3.innerHTML = optionsQuestions[iteration].option3;
+option1.innerHTML = optionsQuestions[i].option1;
+option2.innerHTML = optionsQuestions[i].option2;
+option3.innerHTML = optionsQuestions[i].option3;
 
 
-function nextQuestion() {
-    iteration++;
-    questionSection.innerHTML = questions[iteration].content;
-    option1.innerHTML = optionsQuestions[iteration].option1;
-    option2.innerHTML = optionsQuestions[iteration].option2;
-    option3.innerHTML = optionsQuestions[iteration].option3;
+function nextQuestion(e) {
+    let answer = e.target.id;
+    getAnswer(answer);
+
+    if (i < questions.length - 1) {
+        i++;
+        question.innerHTML = questions[i].content;
+        option1.innerHTML = optionsQuestions[i].option1;
+        option2.innerHTML = optionsQuestions[i].option2;
+        option3.innerHTML = optionsQuestions[i].option3;
+    } else {
+        questionSection.removeChild(option1);
+        questionSection.removeChild(option2);
+        questionSection.removeChild(option3);
+        question.innerHTML = 'Asertastes: ' + correctAnswers + ' preguntas.';
+    }
 }
 
-buttonNext.addEventListener('click', nextQuestion);
+function getAnswer(answer) {
+    console.log(answer);
+    if (answer == questions[i].value)
+        correctAnswers++;
+    console.log(correctAnswers);
+}
+
+option1.addEventListener('click', nextQuestion);
+option2.addEventListener('click', nextQuestion);
+option3.addEventListener('click', nextQuestion);
