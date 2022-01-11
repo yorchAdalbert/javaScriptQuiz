@@ -14,22 +14,24 @@ body {
   background-repeat: no-repeat;
 }
 
-.title h1 {
+h1 {
   color: white;
   letter-spacing: 1px;
   font-size: 3rem;
+  text-align: left;
 }
 
 a {
   text-decoration: none;
-  color: purple;
+  color: white;
   font-weight: bold;
   font-size: 2rem;
 }
 
 p {
-  text-align: center;
   margin-top: 1.5rem;
+  padding: 1rem;
+  font-size: 1.1rem;
 }
 
 label {
@@ -46,4 +48,33 @@ input[type="text"] {
   outline: none;
   margin-bottom: 0.8rem;
   background-color: #b8a9c9;
+}
+
+.button {
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: purple;
+  width: 30%;
+}
+
+.button:hover {
+  background-color: plum;
+  color: white;
+}
+
+.option {
+  border: 1px solid purple;
+}
+
+.option:hover {
+  background-color: plum;
+  color: white;
+}
+
+#questionSection {
+  width: 30%;
+}
+
+#question {
+  font-size: 1.5rem;
 }

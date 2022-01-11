@@ -12,13 +12,12 @@ function nextQuestion(e) {
         questionSection.removeChild(option1);
         questionSection.removeChild(option2);
         questionSection.removeChild(option3);
-        question.innerHTML = 'Asertastes: ' + correctAnswers + ' preguntas.';
+        question.innerHTML = 'You get : ' + correctAnswers + '/' + questions.length + ' questions.';
+        question.style.textAlign = 'center';
     }
 }
 
 function getAnswer(answer) {
-    console.log(answer);
     if (answer == questions[i].value)
         correctAnswers++;
-    console.log(correctAnswers);
 }
